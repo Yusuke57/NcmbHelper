@@ -23,7 +23,7 @@ namespace Yusuke57.CommonPackage
         private void OnClickLoadButton()
         {
             // スコア順にするクエリ作成
-            var query = NcmbHelper.GetQuery<PlayerScoreData>();
+            var query = NcmbHelper.CreateQuery<PlayerScoreData>();
             query.OrderByDescending("score");
             
             // NCMBからロード

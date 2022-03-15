@@ -14,7 +14,7 @@ namespace Yusuke57.CommonPackage
         /// <summary>
         /// 空クエリを取得
         /// </summary>
-        public static NCMBQuery<NCMBObject> GetQuery<T>()
+        public static NCMBQuery<NCMBObject> CreateQuery<T>()
         {
             var dataClassName = typeof(T).Name;
             return new NCMBQuery<NCMBObject>(dataClassName);
@@ -25,7 +25,7 @@ namespace Yusuke57.CommonPackage
         /// </summary>
         public static void Load<T>(Action<List<T>> onComplete) where T : INcmbObjectConverter, new()
         {
-            var query = GetQuery<T>();
+            var query = CreateQuery<T>();
             Load(query, onComplete);
         }
 
@@ -92,7 +92,7 @@ namespace Yusuke57.CommonPackage
         /// </summary>
         public static void Count<T>(Action<int> onComplete) where T : INcmbObjectConverter, new()
         {
-            var query = GetQuery<T>();
+            var query = CreateQuery<T>();
             Count<T>(query, onComplete);
         }
         
