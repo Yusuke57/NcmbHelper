@@ -2,25 +2,7 @@
 ## 概要
 NCMBをUnityで簡単に使えるようにした
 
-1. NCMB上のデータクラスと同じものをUnity(C#)で作成
-2. 適当なオブジェクトにNcmbInitializer.csをアタッチし、NCMBのapplicationKeyとclientKeyを入力
-
-するだけで、以下のように簡単にNCMBでのセーブ/ロードが書ける
-
-```cs
-// NCMBからロード
-NcmbHelper.Load<MyData>(list =>
-{
-    foreach (var data in list)
-    {
-        Debug.Log($"ロードした内容: {data.score}");
-    }
-});
-
-// NCMBにセーブ
-var data = new MyData{ score = 100 };
-NcmbHelper.Save(data);
-```
+<img src="https://user-images.githubusercontent.com/27964732/158573928-29320fd9-8f16-44e8-9d59-8483a00435e4.png" width=480 />　<img src="https://user-images.githubusercontent.com/27964732/158574005-f53ac3a4-4c96-41f9-bba9-add2b0e2dad2.png" width=480 />
 
 ## 環境
 - Unity 2021.2.7f1
@@ -37,6 +19,7 @@ NcmbHelper.Save(data);
 
 ### 簡単な方法
 `NcmbDataClassBase` を継承したデータクラスを作成する
+クラス名とフィールド名はNCMB上で作成したものと合わせる必要がある
 
 ```cs
 public class MyData : NcmbDataClassBase<MyData>
