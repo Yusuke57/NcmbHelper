@@ -1,10 +1,12 @@
 # NcmbHelper
 ## 概要
-NCMBをUnityで簡単に使えるようにした
+NCMBのデータストアをUnityで簡単に使えるようにした
 
 <img src="https://user-images.githubusercontent.com/27964732/158573928-29320fd9-8f16-44e8-9d59-8483a00435e4.png" width=480 />　<img src="https://user-images.githubusercontent.com/27964732/158574005-f53ac3a4-4c96-41f9-bba9-add2b0e2dad2.png" width=480 />
 
-## 環境
+データストア以外の機能には現状対応していません
+
+## 動作確認した環境
 - Unity 2021.2.7f1
 - NCMB 4.4.1
 
@@ -14,6 +16,7 @@ NCMBをUnityで簡単に使えるようにした
 3. NCMB上のデータクラスと同じクラス名&同じフィールド名のクラスをUnity(C#)で作成する
 4. NCMBを使うシーンの適当なオブジェクトにNcmbInitializer.csをアタッチし、NCMBのapplicationKeyとclientKeyを入力する
 
+※NCMBManagerやNCMBSettingsの配置&設定は不要です
 
 ## データクラスの作成
 
@@ -29,7 +32,7 @@ public class MyData : NcmbDataClassBase<MyData>
 ```
 
 リフレクションを使ってフィールド名を取得しているため、  
-処理速度や設計が気になる方は次の「リフレクションを利用しない方法」がおすすめ
+処理速度や設計など気になる方は次の「リフレクションを利用しない方法」がおすすめ
 
 ### リフレクションを利用しない方法
 `INcmbObjectConverter` インターフェースを実装したデータクラスを作成する
